@@ -2,17 +2,66 @@
 layout: default
 ---
 
-<div class="posts">
-  {% for post in site.posts %}
-    <article class="post">
 
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
 
-      <div class="entry">
-        {{ post.excerpt }}
-      </div>
+{% for page in (1..paginator.total_pages) %}
+{% if page == paginator.page %}
+{% elsif page == 1 %}
+{% else %}
+<div id="intro" class="page-{{paginator.page}}">
+    <div class="post">
+        <h1>Introducing JavaScript Tips</h1>
 
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-    </article>
-  {% endfor %}
+        <p>With great excitement, I introduce these short and useful daily JavaScript tips that will allow you to improve your code writing. With less than 2 minutes each day, you will be able to read about performance, conventions, hacks, interview questions and all the items that the future of this awesome language holds for us.</p>
+
+        <p>At midday, no matter if it is a weekend or a holiday, a tip will be posted and tweeted.</p>
+
+        <h2>Can you help us enrich it?</h2>
+
+        <p>Please feel free to send us a PR with your own JavaScript tip to be published here.<br />Any improvements or suggestions are more than welcome! <a href="https://github.com/loverajoel/jstips/blob/master/CONTRIBUTING.md" target="_blank">Click to see the instructions</a></p>
+
+        <h2>Let’s keep in touch</h2>
+
+        <p>To get updates, watch the repo and follow the <a href="https://twitter.com/tips_js" target="_blank"><i class="fa fa-twitter"></i> Twitter account</a>, only one tweet will be sent per day. It is a deal!</p>
+
+        <p><i class="fa fa-star"></i> Don't forget to Star the repo, as this will help to promote the project!</p>
+    </div>
 </div>
+
+<h2 class="the-tips">The Tips</h2>
+
+{% endif %}
+{% endfor %}
+
+
+
+
+
+<div class="posts">
+    {% for post in paginator.posts %}
+
+    <article class="post">
+        <h1 class="post-title">
+            <a href="{{ site.baseurl }}{{ post.url }}">
+                <span class="tip-number">{{ post.tipNumber }}</span>
+                {{ post.title }}
+            </a>
+        </h1>
+
+        <div class="meta-info">
+            <time class="date meta-item" datetime="{{ post.date }}"><i class="fa fa-calendar"></i> {{ post.date | date_to_string }}</time>
+
+            <div class="contributor meta-item"><i class="fa fa-user"></i><a href="{{ post.tipContributorUrl }}"> @{{ post.tipContributorUser }}</a></div>
+        </div>
+
+
+        <div class="entry">
+            {{ post.excerpt }}
+        </div>
+
+        <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read Tip</a>
+    </article>
+    {% endfor %}
+</div>
+
+
