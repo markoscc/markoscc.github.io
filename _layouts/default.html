@@ -13,21 +13,14 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
-
     <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
     <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css"/>
-    <link rel="alternate" type="application/rss+xml"
-          title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml"/>
-
+    <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml"/>
     <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
 </head>
-
 <body>
-
-
 <div id="main-wrapper">
 
     {% if page.is_post %}
@@ -46,58 +39,39 @@
         {% endif %}
     {% endif %}
 
-
-    {% for page in (1..paginator.total_pages) %}
-    {% if page == paginator.page %}
-    {% elsif page == 1 %}
-
-        <a class="tips-nav prev-tip" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">
-            <i class="fa fa-angle-left"></i>
-            <p>Previous Page</p>
-        </a>
-
-    {% else %}
-
-        <a class="tips-nav next-tip" href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">
-            <i class="fa fa-angle-right"></i>
-            <p>Next Page</p>
-        </a>
-
-    {% endif %}
-    {% endfor %}
-
-
-
-
-    <a href="https://twitter.com/tips_js" target="_blank" title="Follow Us!" class="twitter-link"><i class="fa fa-twitter"></i></a>
-
+    {% if page.is_post %}
     <div id="fixed-bar" class="{% if page.is_post %}is-post{% endif %} {% if paginator.page > 1 %} not-first-page {% endif %}">
         <div class="logo">
             <a href="/">
                 <img src="{{ site.baseurl }}/images/jstips.png" alt="Js Tips">
             </a>
         </div>
-
         <div class="menu">
             <ul>
                 <li><a href="javascript:"><i class="fa fa-bars"></i></a></li>
-                <li><a href="javascript:">Home</a></li>
-                <li><a href="javascript:">About</a></li>
-                <li><a href="javascript:">Tip List</a></li>
-                <li><a href="javascript:">Contribute</a></li>
-                <li><a href="javascript:">Subscribe</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about/">About</a></li>
+                <li><a href="#">Subscribe</a></li>
+                <li><a href="https://github.com/loverajoel/jstips/blob/master/CONTRIBUTING.md">Submit your tip!</a></li>
             </ul>
         </div>
     </div>
-
+    {% endif %}
     <div id="main-header" class="{% if page.is_post %}is-post{% endif %} {% if paginator.page > 1 %} not-first-page {% endif %}">
-
-        <div class="background">
-
-        </div>
-
+        <div class="background"></div>
     </div>
-
+    {% if page.is_post %}
+    {% else %}
+        <div class="menu-home">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about/">About</a></li>
+                <li><a href="#">Subscribe</a></li>
+                <li><a href="https://github.com/loverajoel/jstips/blob/master/CONTRIBUTING.md">Submit your tip!</a></li>
+            </ul>
+            <hr/>
+        </div>
+    {% endif %}
     <div id="posts-wrapper">
 
         {{ content }}
@@ -120,67 +94,21 @@
             </ul>
         </div>
     </div>
-
-
-
     <footer>
-
+        <div class="email-suscribe">
+            <div>
+                Email Suscribe
+            </div>
+        </div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Submit your tip!</a></li>
+            <li><a href="#">Github</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Fork this repo</a></li>
+        </ul>
     </footer>
-
-
 </div>
-
-<script>
-
-    var fixedBarHeight = 0;
-    var scrollPosition = 0;
-    var fixedBar = document.querySelector('#fixed-bar');
-
-    var isPost = fixedBar.classList.contains('is-post');
-    var notFirstPage = fixedBar.classList.contains('not-first-page');
-
-
-    var checkScroll = function() {
-
-        scrollPosition = window.scrollY;
-
-        if (isPost) {
-            if (scrollPosition > 250) {
-                fixedBar.classList.add('visible');
-            }
-
-            if (scrollPosition < 250) {
-                fixedBar.classList.remove('visible');
-            }
-        }
-
-        if (!isPost) {
-            if (scrollPosition > 450) {
-                fixedBar.classList.add('visible');
-            }
-
-            if (scrollPosition < 450) {
-                fixedBar.classList.remove('visible');
-            }
-        }
-
-        if (notFirstPage) {
-            console.log('NOT FIRST PAGE');
-            if (scrollPosition > 80) {
-                fixedBar.classList.add('visible');
-            }
-
-            if (scrollPosition < 80) {
-                fixedBar.classList.remove('visible');
-            }
-        }
-
-        console.log(scrollPosition, isPost, notFirstPage);
-    };
-
-    window.addEventListener('scroll', checkScroll);
-
-</script>
-
 </body>
 </html>

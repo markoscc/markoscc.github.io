@@ -174,7 +174,7 @@ img {
         display: block;
         width: 100%;
         height: 100%;
-        max-width: 1300px;
+        max-width: 980px;
         margin: 0 auto;
 
         background: {
@@ -187,19 +187,11 @@ img {
 
     &.not-first-page {
         height: 80px;
-
-        .background {
-            background-image: url(images/jstips-header-blog-static.png);
-        }
     }
 
     &.is-post {
         height: 250px;
         background-size: cover;
-
-        .background {
-            background-image: url(images/jstips-header-blog-static.png);
-        }
     }
 
     h1 {
@@ -207,6 +199,44 @@ img {
         margin: 0;
     }
 
+}
+
+.menu-home {
+    width: 100%;
+    max-width: 900px;
+    margin: 10px auto 0;
+    overflow: hidden;
+
+    ul {
+        margin: 0px;
+        padding: 0px;
+        text-align: center;
+
+        li {
+            display: inline-block;
+            list-style: none;
+            margin: 0 5px;
+
+            a {
+                color: #000;
+                font-size: 21px;
+                font-weight: 300;
+                padding: 5px;
+                float: left;
+            }
+
+            a:hover {
+                background: #F8DA59;
+            }
+        }
+    }
+
+    hr {
+        height: 2px;
+        width: 20%;
+        border: 0;
+        background: #000;
+    }
 }
 
 .tips-nav {
@@ -295,12 +325,11 @@ img {
 }
 
 #fixed-bar {
-    width: 0;
-    background: transparent;
-    position: fixed;
     top: 0;
     left: 0;
     height: 80px;
+    margin: 20px;
+    position: fixed;
     display: flex;
     align-items: center;
     transition: all .5s ease;
@@ -308,20 +337,16 @@ img {
     overflow: hidden;
     z-index: 10;
 
-
     &.visible,
     &.is-post {
         height: 80px;
-        background: $color-yellow;
         width: 100%;
 
         img {
             opacity: 1;
             transform: scale(1);
         }
-
     }
-
 
     &.is-post,
     &.not-first-page {
@@ -378,16 +403,18 @@ img {
         position: relative;
         display: flex;
         align-items: center;
-        margin-left: 7px;
 
         a {
-            width: 80px;
+            width: 78px;
             display: flex;
         }
     }
 
     .menu {
+        height: 78px;
+
         ul {
+            height: 78px;
             list-style: none;
             margin: 0;
             padding: 0;
@@ -397,7 +424,7 @@ img {
 
             li {
                 &:first-child {
-                    margin-right: 10px;
+                    margin: 10px;
 
                     a {
                         padding: 0;
@@ -421,6 +448,8 @@ img {
     }
 
     &:hover {
+        background: $color-yellow;
+
         .menu ul li:first-child a {
             opacity: 0;
 
@@ -448,19 +477,26 @@ img {
     }
 }
 
-#posts-wrapper {
+#posts-wrapper-home {
     width: 100%;
     max-width: 900px;
     margin: 0 auto;
 }
 
+#posts-wrapper {
+    width: 100%;
+}
 
-
-
+.page {
+    width: 100%;
+    max-width: 900px;
+    margin: 10px auto 0;
+    overflow: hidden;
+}
 
 .posts {
     > .post {
-    margin: 25px 0;
+    margin: 50px 0;
 
     .post-title {
         a {
@@ -491,18 +527,26 @@ img {
 }
 
 .post {
-
-    padding: 30px;
-    box-shadow: 0 5px 17px rgba(0, 0, 0, 0.1);
-    background: #fff;
     overflow: hidden;
 
     &.single {
         position: relative;
-        top: -140px;
+        top: -190px;
         z-index: 5;
 
         .post-title {
+        }
+
+        .tldt {
+            margin: 23px auto;
+
+            p {
+                font-size: 18px;
+            }
+        }
+
+        .entry {
+            margin: 50px
         }
     }
 
@@ -511,8 +555,10 @@ img {
     }
 
     .post-title {
+        width: 100%;
+        max-width: 900px;
+        margin: 0 auto;
         padding: 0;
-        margin: 0;
         position: relative;
         display: block;
         height: 50px;
@@ -528,15 +574,16 @@ img {
     }
 
     .meta-info {
+        width: 100%;
+        max-width: 900px;
+        margin: 0 auto;
         display: flex;
         flex-direction: row;
-        border-bottom: 1px dashed rgba(0, 0, 0, .2);
-        margin-bottom: 20px;
 
         .meta-item {
             margin-right: 20px;
-            padding: 20px 0;
-            font-size: 14px;
+            padding: 10px 0;
+            font-size: 12px;
 
             i {
                 margin-right: 3px;
@@ -583,11 +630,40 @@ img {
         &:hover {
             background: darken($color-yellow, 10%);
         }
+    }
 
+    .entry {
+        font-size: 17px;
+
+        * {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .highlight {
+            max-width: none;
+        }
+    }
+
+    .tldt {
+        width: 100%;
+        max-width: 900px;
+        margin: 0 auto;
     }
 }
 
+.email-suscribe {
+    width: 100%;
+    background: #000;
+    position: relative;
 
+    div {
+        width: 900px;
+        height: 200px;
+        margin: auto;
+    }
+}
 
 #paginator-wrapper {
     ul {
@@ -722,7 +798,6 @@ nav {
 // .main
 //
 
-
 .wrapper-footer {
     margin-top: 50px;
     border-top: 1px solid #ddd;
@@ -731,8 +806,29 @@ nav {
 }
 
 footer {
-    padding: 20px 0;
+    margin: 50px 0 0 0;
     text-align: center;
+    background: $color-yellow;
+    overflow: hidden;
+
+    ul  {
+        max-width: 900px;
+        width: 100%;
+        list-style: none;
+        margin: 0 auto;
+        padding: 0px;
+        text-align: center;
+
+        li {
+            display: inline;
+            margin: 0 10px;
+
+            a {
+                color: #000;
+                font-size: 12px
+            }
+        }
+    }
 }
 
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
