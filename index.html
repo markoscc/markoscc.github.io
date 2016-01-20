@@ -51,7 +51,9 @@ layout: default
         <div class="meta-info">
             <time class="date meta-item" datetime="{{ post.date }}"><i class="fa fa-calendar"></i> {{ post.date | date_to_string }}</time>
 
-            <div class="contributor meta-item"><i class="fa fa-user"></i><a href="{{ post.tipContributorUrl }}"> @{{ post.tipContributorUser }}</a></div>
+            <div class="contributor meta-item"><i class="fa fa-user"></i><a href="{{ post.tipContributorUrl }}" target="_blank"> @{{ post.tipContributorUser }}</a></div>
+
+            <div class="share meta-item"><a href="javascript:"><i class="fa fa-share-alt"></i> Share tip</a></div>
         </div>
 
 
