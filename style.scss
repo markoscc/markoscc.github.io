@@ -59,7 +59,8 @@ h2 {
 }
 
 h3 {
-    font-size: 20px;
+    font-size: 30px;
+    margin: 20px auto 10px auto !important;
 }
 
 h4 {
@@ -178,7 +179,7 @@ img {
         margin: 0 auto;
 
         background: {
-            image: url(images/jstips-header-blog.gif);
+            image: url(images/jstips-header-blog2.gif);
             position: center center;
             size: cover;
             repeat: no-repeat;
@@ -481,6 +482,10 @@ img {
     width: 100%;
     max-width: 900px;
     margin: 0 auto;
+
+    .entry {
+        padding: 0px;
+    }
 }
 
 #posts-wrapper {
@@ -543,10 +548,6 @@ img {
             p {
                 font-size: 18px;
             }
-        }
-
-        .entry {
-            margin: 50px
         }
     }
 
@@ -634,6 +635,7 @@ img {
 
     .entry {
         font-size: 17px;
+        padding: 50px 0 0 0;
 
         * {
             width: 100%;
@@ -643,6 +645,8 @@ img {
 
         .highlight {
             max-width: none;
+            margin: 50px 0;
+            overflow: hidden;
         }
     }
 
@@ -658,10 +662,28 @@ img {
     background: #000;
     position: relative;
 
-    div {
+    > div {
         width: 900px;
         height: 200px;
         margin: auto;
+
+        label {
+            font-size: 30px;
+            color: $color-yellow;
+        }
+
+        .email {
+            background: red;
+            border: 0px;
+            font-size: 20px;
+            padding: 5px;
+            width: 306px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .clear {
+        }
     }
 }
 
