@@ -17,7 +17,11 @@ layout: default
 
             <div class="contributor meta-item"><i class="fa fa-user"></i><a href="{{ page.tipContributorUrl }}" target="_blank"> @{{ page.tipContributorUser }}</a></div>
 
-            <div class="share meta-item"><a href="javascript:"><i class="fa fa-share-alt"></i> Share tip</a></div>
+            <div class="share meta-item">
+                <a href="http://facebook.com/sharer.php?s=100&p[url]=http://www.jstips.co{{page.url}}" target="_blank"><img src="/images/facebook.svg"></a>
+                <a href="https://twitter.com/intent/tweet?text=JS Tips - {{page.tipNumber}} - {{ page.title }}&url=http://www.jstips.co{{page.url}}&hashtags=javascript"><img src="/images/twitter.svg"></a>
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://www.jstips.co{{page.url}}&title=JS Tips - {{page.tipNumber}} - {{ page.title }}&summary={{ page.tipTlDt }}" target="_blank"><img src="/images/linkedin.svg"></a>
+            </div>
 
         </div>
 

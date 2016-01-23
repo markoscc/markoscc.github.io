@@ -1,17 +1,13 @@
 ---
 layout: default
+type: posts
 ---
 
-{% for page in (1..paginator.total_pages) %}
-{% if page == paginator.page %}
-{% elsif page == 1 %}
-{% else %}
-<!-- <h2 class="the-tips">The Tips</h2> -->
-{% endif %}
-{% endfor %}
 <div id="posts-wrapper-home">
     <div class="posts">
-        {% assign posts=paginator.posts | where:"lang", "en" %}
+        <!-- {% assign posts=site.categories | where:"lang", "en" %} -->
+        {% assign posts=paginator.posts | where:"lang", "es" %}
+        <!-- {{site | jsonify}} -->
         {% for post in posts %}
         <article class="post">
             <h1 class="post-title">

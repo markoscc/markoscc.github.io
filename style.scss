@@ -28,6 +28,10 @@ body {
     color: $darkGray;
 }
 
+*:focus {
+    outline: none;
+}
+
 .container {
     margin: 0 auto;
     max-width: 740px;
@@ -179,7 +183,7 @@ img {
         margin: 0 auto;
 
         background: {
-            image: url(images/jstips-header-blog2.gif);
+            image: url(images/jstips-header-blog.gif);
             position: center center;
             size: cover;
             repeat: no-repeat;
@@ -333,7 +337,6 @@ img {
     position: fixed;
     display: flex;
     align-items: center;
-    transition: all .5s ease;
     border-bottom: 1px solid darken($color-yellow, 20%);
     overflow: hidden;
     z-index: 10;
@@ -371,7 +374,7 @@ img {
     }
 
     &.is-post:hover {
-        width: 100%;
+        
     }
 
     &.not-first-page {
@@ -410,56 +413,6 @@ img {
             display: flex;
         }
     }
-
-    .menu {
-        height: 78px;
-
-        ul {
-            height: 78px;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-
-            li {
-                &:first-child {
-                    margin: 10px;
-
-                    a {
-                        padding: 0;
-                    }
-                }
-
-                a {
-                    color: $color-black;
-                    text-transform: uppercase;
-                    padding: 15px 25px;
-                    background: transparent;
-                    transition: all .3s ease;
-                    white-space: nowrap;
-
-                    &:hover {
-                        background: darken($color-yellow, 10%);
-                    }
-                }
-            }
-        }
-    }
-
-    &:hover {
-        background: $color-yellow;
-
-        .menu ul li:first-child a {
-            opacity: 0;
-
-            &:hover {
-                cursor: default;
-            }
-        }
-    }
-
 }
 
 #intro {
@@ -599,7 +552,11 @@ img {
             margin-right: 0;
 
             a {
-                color: $color-black;
+                margin: 0 3px;
+
+                img {
+                    width: 20px;
+                }
             }
 
         }
@@ -615,7 +572,8 @@ img {
     }
 
     .comments {
-        margin-top: 10px;
+        max-width: 900px;
+        margin: 35px auto 0;
     }
 
     .read-more {
@@ -659,7 +617,6 @@ img {
 
 .email-suscribe {
     width: 100%;
-    background: #000;
     position: relative;
 
     > div {
@@ -669,17 +626,52 @@ img {
 
         label {
             font-size: 30px;
-            color: $color-yellow;
+            margin: 45px 0 0 0;
+            display: inline-block;
         }
 
         .email {
-            background: red;
+            background: #E2C64A;
             border: 0px;
             font-size: 20px;
-            padding: 5px;
-            width: 306px;
-            display: block;
-            margin: 0 auto;
+            padding: 9px;
+            width: 100%;
+            float: left;
+        }
+
+        .email::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+            color: #5f5f5f;
+        }
+        .email:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+            color: #5f5f5f;
+        }
+        .email::-moz-placeholder { /* Mozilla Firefox 19+ */
+            color: #5f5f5f;
+        }
+        .email:-ms-input-placeholder { /* Internet Explorer 10-11 */
+            color: #5f5f5f;
+        }
+        .email:placeholder-shown { /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
+            color: #5f5f5f;
+        }
+
+        .button {
+            width: 41px;
+            height: 41px;
+            border: 0px;
+            background: url("/images/email.svg") no-repeat;
+            position: absolute;
+            right: 0px;
+            cursor: pointer;
+            background-size: 28px 28px;
+            background-color: #000;
+            background-position: 8px;
+        }
+
+        .email-container {
+            width: 310px;
+            margin: 10px auto 0;
+            position: relative;
         }
 
         .clear {
@@ -832,6 +824,7 @@ footer {
     text-align: center;
     background: $color-yellow;
     overflow: hidden;
+    padding: 0 0 5px 0;
 
     ul  {
         max-width: 900px;
@@ -847,10 +840,34 @@ footer {
 
             a {
                 color: #000;
-                font-size: 12px
+                font-size: 13px
+            }
+
+            a:hover {
+                color: #000;
+                text-decoration: underline; 
+            }
+        }
+
+        .twitter {
+            iframe {
+                margin: -4px
+            }
+        }
+
+        .github {
+
+            img {
+                width: 20px;
+                height: 20px;
+                margin: -4px;
             }
         }
     }
+}
+
+footer.is-post {
+    margin: -110px 0 0 0;
 }
 
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
