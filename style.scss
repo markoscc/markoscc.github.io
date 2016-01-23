@@ -28,6 +28,10 @@ body {
     color: $darkGray;
 }
 
+*:focus {
+    outline: none;
+}
+
 .container {
     margin: 0 auto;
     max-width: 740px;
@@ -59,7 +63,8 @@ h2 {
 }
 
 h3 {
-    font-size: 20px;
+    font-size: 30px;
+    margin: 20px auto 10px auto !important;
 }
 
 h4 {
@@ -174,7 +179,7 @@ img {
         display: block;
         width: 100%;
         height: 100%;
-        max-width: 1300px;
+        max-width: 980px;
         margin: 0 auto;
 
         background: {
@@ -187,19 +192,11 @@ img {
 
     &.not-first-page {
         height: 80px;
-
-        .background {
-            background-image: url(images/jstips-header-blog-static.png);
-        }
     }
 
     &.is-post {
         height: 250px;
         background-size: cover;
-
-        .background {
-            background-image: url(images/jstips-header-blog-static.png);
-        }
     }
 
     h1 {
@@ -207,6 +204,44 @@ img {
         margin: 0;
     }
 
+}
+
+.menu-home {
+    width: 100%;
+    max-width: 900px;
+    margin: 10px auto 0;
+    overflow: hidden;
+
+    ul {
+        margin: 0px;
+        padding: 0px;
+        text-align: center;
+
+        li {
+            display: inline-block;
+            list-style: none;
+            margin: 0 5px;
+
+            a {
+                color: #000;
+                font-size: 21px;
+                font-weight: 300;
+                padding: 5px;
+                float: left;
+            }
+
+            a:hover {
+                background: #F8DA59;
+            }
+        }
+    }
+
+    hr {
+        height: 2px;
+        width: 20%;
+        border: 0;
+        background: #000;
+    }
 }
 
 .tips-nav {
@@ -295,33 +330,27 @@ img {
 }
 
 #fixed-bar {
-    width: 0;
-    background: transparent;
-    position: fixed;
     top: 0;
     left: 0;
     height: 80px;
+    margin: 20px;
+    position: fixed;
     display: flex;
     align-items: center;
-    transition: all .5s ease;
     border-bottom: 1px solid darken($color-yellow, 20%);
     overflow: hidden;
     z-index: 10;
 
-
     &.visible,
     &.is-post {
         height: 80px;
-        background: $color-yellow;
         width: 100%;
 
         img {
             opacity: 1;
             transform: scale(1);
         }
-
     }
-
 
     &.is-post,
     &.not-first-page {
@@ -345,7 +374,7 @@ img {
     }
 
     &.is-post:hover {
-        width: 100%;
+        
     }
 
     &.not-first-page {
@@ -378,58 +407,12 @@ img {
         position: relative;
         display: flex;
         align-items: center;
-        margin-left: 7px;
 
         a {
-            width: 80px;
+            width: 78px;
             display: flex;
         }
     }
-
-    .menu {
-        ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-
-            li {
-                &:first-child {
-                    margin-right: 10px;
-
-                    a {
-                        padding: 0;
-                    }
-                }
-
-                a {
-                    color: $color-black;
-                    text-transform: uppercase;
-                    padding: 15px 25px;
-                    background: transparent;
-                    transition: all .3s ease;
-                    white-space: nowrap;
-
-                    &:hover {
-                        background: darken($color-yellow, 10%);
-                    }
-                }
-            }
-        }
-    }
-
-    &:hover {
-        .menu ul li:first-child a {
-            opacity: 0;
-
-            &:hover {
-                cursor: default;
-            }
-        }
-    }
-
 }
 
 #intro {
@@ -448,19 +431,30 @@ img {
     }
 }
 
-#posts-wrapper {
+#posts-wrapper-home {
     width: 100%;
     max-width: 900px;
     margin: 0 auto;
+
+    .entry {
+        padding: 0px;
+    }
 }
 
+#posts-wrapper {
+    width: 100%;
+}
 
-
-
+.page {
+    width: 100%;
+    max-width: 900px;
+    margin: 10px auto 0;
+    overflow: hidden;
+}
 
 .posts {
     > .post {
-    margin: 25px 0;
+    margin: 50px 0;
 
     .post-title {
         a {
@@ -491,18 +485,22 @@ img {
 }
 
 .post {
-
-    padding: 30px;
-    box-shadow: 0 5px 17px rgba(0, 0, 0, 0.1);
-    background: #fff;
     overflow: hidden;
 
     &.single {
         position: relative;
-        top: -140px;
+        top: -190px;
         z-index: 5;
 
         .post-title {
+        }
+
+        .tldt {
+            margin: 23px auto;
+
+            p {
+                font-size: 18px;
+            }
         }
     }
 
@@ -511,8 +509,10 @@ img {
     }
 
     .post-title {
+        width: 100%;
+        max-width: 900px;
+        margin: 0 auto;
         padding: 0;
-        margin: 0;
         position: relative;
         display: block;
         height: 50px;
@@ -528,15 +528,16 @@ img {
     }
 
     .meta-info {
+        width: 100%;
+        max-width: 900px;
+        margin: 0 auto;
         display: flex;
         flex-direction: row;
-        border-bottom: 1px dashed rgba(0, 0, 0, .2);
-        margin-bottom: 20px;
 
         .meta-item {
             margin-right: 20px;
-            padding: 20px 0;
-            font-size: 14px;
+            padding: 10px 0;
+            font-size: 12px;
 
             i {
                 margin-right: 3px;
@@ -551,7 +552,11 @@ img {
             margin-right: 0;
 
             a {
-                color: $color-black;
+                margin: 0 3px;
+
+                img {
+                    width: 20px;
+                }
             }
 
         }
@@ -567,7 +572,8 @@ img {
     }
 
     .comments {
-        margin-top: 10px;
+        max-width: 900px;
+        margin: 35px auto 0;
     }
 
     .read-more {
@@ -583,11 +589,95 @@ img {
         &:hover {
             background: darken($color-yellow, 10%);
         }
+    }
 
+    .entry {
+        font-size: 17px;
+        padding: 50px 0 0 0;
+
+        * {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .highlight {
+            max-width: none;
+            margin: 50px 0;
+            overflow: hidden;
+        }
+    }
+
+    .tldt {
+        width: 100%;
+        max-width: 900px;
+        margin: 0 auto;
     }
 }
 
+.email-suscribe {
+    width: 100%;
+    position: relative;
 
+    > div {
+        width: 900px;
+        height: 200px;
+        margin: auto;
+
+        label {
+            font-size: 30px;
+            margin: 45px 0 0 0;
+            display: inline-block;
+        }
+
+        .email {
+            background: #E2C64A;
+            border: 0px;
+            font-size: 20px;
+            padding: 9px;
+            width: 100%;
+            float: left;
+        }
+
+        .email::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+            color: #5f5f5f;
+        }
+        .email:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+            color: #5f5f5f;
+        }
+        .email::-moz-placeholder { /* Mozilla Firefox 19+ */
+            color: #5f5f5f;
+        }
+        .email:-ms-input-placeholder { /* Internet Explorer 10-11 */
+            color: #5f5f5f;
+        }
+        .email:placeholder-shown { /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
+            color: #5f5f5f;
+        }
+
+        .button {
+            width: 41px;
+            height: 41px;
+            border: 0px;
+            background: url("/images/email.svg") no-repeat;
+            position: absolute;
+            right: 0px;
+            cursor: pointer;
+            background-size: 28px 28px;
+            background-color: #000;
+            background-position: 8px;
+        }
+
+        .email-container {
+            width: 310px;
+            margin: 10px auto 0;
+            position: relative;
+        }
+
+        .clear {
+        }
+    }
+}
 
 #paginator-wrapper {
     ul {
@@ -722,7 +812,6 @@ nav {
 // .main
 //
 
-
 .wrapper-footer {
     margin-top: 50px;
     border-top: 1px solid #ddd;
@@ -731,8 +820,54 @@ nav {
 }
 
 footer {
-    padding: 20px 0;
+    margin: 50px 0 0 0;
     text-align: center;
+    background: $color-yellow;
+    overflow: hidden;
+    padding: 0 0 5px 0;
+
+    ul  {
+        max-width: 900px;
+        width: 100%;
+        list-style: none;
+        margin: 0 auto;
+        padding: 0px;
+        text-align: center;
+
+        li {
+            display: inline;
+            margin: 0 10px;
+
+            a {
+                color: #000;
+                font-size: 13px
+            }
+
+            a:hover {
+                color: #000;
+                text-decoration: underline; 
+            }
+        }
+
+        .twitter {
+            iframe {
+                margin: -4px
+            }
+        }
+
+        .github {
+
+            img {
+                width: 20px;
+                height: 20px;
+                margin: -4px;
+            }
+        }
+    }
+}
+
+footer.is-post {
+    margin: -110px 0 0 0;
 }
 
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
